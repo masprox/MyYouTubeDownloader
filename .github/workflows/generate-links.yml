@@ -1,0 +1,74 @@
+name: Generate links.txt
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'downloads/**'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate links.txt
+        run: |
+          python << 'PY'
+          import os
+
+          USERNAME = "raha-2000"
+          REPO = "MyYouTubeDownloader"
+          BRANCH = "main"
+          DOWNLOADS_DIR = "downloads"
+          OUTPUT_FILE = "links.txt"
+
+          base_url = f"https://raw.githubusercontent.com/{USERNAME}/{REPO}/{BRANCH}"
+
+          if not os.path.isdir(DOWNLOADS_DIR):
+              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+                  f.write("downloads folder not found\n")
+              raise SystemExit(0)
+
+          folder_names = []
+          for item in sorted(os.listdir(DOWNLOADS_DIR)):
+              full_path = os.path.join(DOWNLOADS_DIR, item)
+              if os.path.isdir(full_path):
+                  folder_names.append(item)
+
+          with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+              for folder in folder_names:
+                  folder_path = os.path.join(DOWNLOADS_DIR, folder)
+
+                  file_links = []
+                  for root, dirs, files in os.walk(folder_path):
+                      dirs.sort()
+                      files.sort()
+                      for file_name in files:
+                          rel_path = os.path.join(root, file_name).replace("\\", "/")
+                          file_url = f"{base_url}/{rel_path}"
+                          file_links.append(file_url)
+
+                  if not file_links:
+                      continue
+
+                  f.write(f"{folder}\n\n")
+                  for link in file_links:
+                      f.write(link + "\n")
+                  f.write("\n\n")
+
+          print("links.txt generated successfully")
+          PY
+
+      - name: Commit and push links.txt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add links.txt
+          git diff --cached --quiet || git commit -m "Update links.txt [skip ci]"
+          git push
