@@ -2,6 +2,11 @@ name: Generate links.txt
 
 on:
   workflow_dispatch:
+    inputs:
+      reset_state:
+        description: "Reset saved file list and treat all files as new"
+        required: false
+        default: "false"
   push:
     paths:
       - 'downloads/**'
@@ -14,61 +19,211 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Generate links.txt
+      - name: Generate links.txt without checkout
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: raha-2000
+          REPO: MyYouTubeDownloader
+          BRANCH: main
+          DOWNLOADS_DIR: downloads
+          OUTPUT_FILE: links.txt
+          STATE_FILE: .github/downloads-file-list.txt
+          RESET_STATE: ${{ github.event.inputs.reset_state }}
         run: |
           python << 'PY'
           import os
+          import json
+          import base64
+          import urllib.request
+          import urllib.parse
+          import urllib.error
+          from collections import defaultdict
 
-          USERNAME = "raha-2000"
-          REPO = "MyYouTubeDownloader"
-          BRANCH = "main"
-          DOWNLOADS_DIR = "downloads"
-          OUTPUT_FILE = "links.txt"
+          token = os.environ["GITHUB_TOKEN"]
+          owner = os.environ["OWNER"]
+          repo = os.environ["REPO"]
+          branch = os.environ["BRANCH"]
+          downloads_dir = os.environ["DOWNLOADS_DIR"].strip("/")
+          output_file = os.environ["OUTPUT_FILE"]
+          state_file = os.environ["STATE_FILE"]
+          reset_state = os.getenv("RESET_STATE", "false").lower() == "true"
 
-          base_url = f"https://raw.githubusercontent.com/{USERNAME}/{REPO}/{BRANCH}"
+          api_base = f"https://api.github.com/repos/{owner}/{repo}"
+          raw_base = f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}"
 
-          if not os.path.isdir(DOWNLOADS_DIR):
-              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                  f.write("downloads folder not found\n")
-              raise SystemExit(0)
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "generate-links-workflow"
+          }
 
-          folder_names = []
-          for item in sorted(os.listdir(DOWNLOADS_DIR)):
-              full_path = os.path.join(DOWNLOADS_DIR, item)
-              if os.path.isdir(full_path):
-                  folder_names.append(item)
+          def request_json(method, url, data=None):
+              body = None
+              if data is not None:
+                  body = json.dumps(data).encode("utf-8")
 
-          with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-              for folder in folder_names:
-                  folder_path = os.path.join(DOWNLOADS_DIR, folder)
+              req = urllib.request.Request(
+                  url,
+                  data=body,
+                  method=method,
+                  headers=headers
+              )
 
-                  file_links = []
-                  for root, dirs, files in os.walk(folder_path):
-                      dirs.sort()
-                      files.sort()
-                      for file_name in files:
-                          rel_path = os.path.join(root, file_name).replace("\\", "/")
-                          file_url = f"{base_url}/{rel_path}"
-                          file_links.append(file_url)
+              try:
+                  with urllib.request.urlopen(req) as response:
+                      text = response.read().decode("utf-8")
+                      if not text:
+                          return None
+                      return json.loads(text)
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      return None
+                  error_body = e.read().decode("utf-8", errors="replace")
+                  raise RuntimeError(f"GitHub API error {e.code}: {error_body}")
 
-                  if not file_links:
-                      continue
+          def get_file_content_and_sha(path):
+              encoded_path = urllib.parse.quote(path)
+              url = f"{api_base}/contents/{encoded_path}?ref={urllib.parse.quote(branch)}"
+              data = request_json("GET", url)
 
-                  f.write(f"{folder}\n\n")
-                  for link in file_links:
-                      f.write(link + "\n")
-                  f.write("\n\n")
+              if not data:
+                  return None, None
 
-          print("links.txt generated successfully")
+              sha = data.get("sha")
+              content = data.get("content", "")
+              encoding = data.get("encoding")
+
+              if encoding == "base64":
+                  decoded = base64.b64decode(content).decode("utf-8")
+              else:
+                  decoded = ""
+
+              return decoded, sha
+
+          def put_file(path, content, message):
+              old_content, sha = get_file_content_and_sha(path)
+
+              encoded_path = urllib.parse.quote(path)
+              url = f"{api_base}/contents/{encoded_path}"
+
+              payload = {
+                  "message": message,
+                  "content": base64.b64encode(content.encode("utf-8")).decode("ascii"),
+                  "branch": branch
+              }
+
+              if sha:
+                  payload["sha"] = sha
+
+              request_json("PUT", url, payload)
+
+          def get_repo_tree():
+              url = f"{api_base}/git/trees/{urllib.parse.quote(branch)}?recursive=1"
+              data = request_json("GET", url)
+
+              if not data:
+                  raise RuntimeError("Could not read repository tree.")
+
+              if data.get("truncated"):
+                  print("WARNING: GitHub tree response is truncated. Some files may be missing.")
+
+              return data.get("tree", [])
+
+          print("Reading repository file list from GitHub API...")
+
+          tree = get_repo_tree()
+
+          current_files = []
+
+          for item in tree:
+              path = item.get("path", "")
+              item_type = item.get("type", "")
+
+              if item_type != "blob":
+                  continue
+
+              if not path.startswith(downloads_dir + "/"):
+                  continue
+
+              current_files.append(path)
+
+          current_files = sorted(set(current_files))
+
+          print(f"Current files in {downloads_dir}: {len(current_files)}")
+
+          previous_files = []
+
+          if not reset_state:
+              previous_content, _ = get_file_content_and_sha(state_file)
+              if previous_content:
+                  previous_files = [
+                      line.strip()
+                      for line in previous_content.splitlines()
+                      if line.strip()
+                  ]
+
+          previous_set = set(previous_files)
+          current_set = set(current_files)
+
+          if reset_state or not previous_files:
+              new_files = current_files
+              print("No previous state found or reset_state=true. Treating all files as new.")
+          else:
+              new_files = sorted(current_set - previous_set)
+              print(f"New files since last run: {len(new_files)}")
+
+          grouped = defaultdict(list)
+
+          for rel_path in new_files:
+              parts = rel_path.split("/")
+              if len(parts) < 2:
+                  continue
+
+              top_folder = parts[1]
+
+              encoded_rel_path = urllib.parse.quote(rel_path, safe="/")
+              file_url = f"{raw_base}/{encoded_rel_path}"
+
+              grouped[top_folder].append(file_url)
+
+          lines = []
+
+          if reset_state:
+              lines.append("Reset state: true")
+              lines.append("")
+
+          if not previous_files:
+              lines.append("First run or no previous state file found.")
+              lines.append("All current files are listed below.")
+              lines.append("")
+          else:
+              lines.append("New files since previous workflow run:")
+              lines.append("")
+
+          if grouped:
+              for folder in sorted(grouped.keys()):
+                  lines.append(folder)
+                  lines.append("")
+
+                  for link in sorted(grouped[folder]):
+                      lines.append(link)
+
+                  lines.append("")
+                  lines.append("")
+          else:
+              lines.append("No new files found.")
+              lines.append("")
+
+          links_content = "\n".join(lines)
+
+          state_content = "\n".join(current_files) + "\n"
+
+          print(f"Writing {output_file}...")
+          put_file(output_file, links_content, "Update links.txt [skip ci]")
+
+          print(f"Writing {state_file}...")
+          put_file(state_file, state_content, "Update downloads file state [skip ci]")
+
+          print("Done.")
           PY
-
-      - name: Commit and push links.txt
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add links.txt
-          git diff --cached --quiet || git commit -m "Update links.txt [skip ci]"
-          git push
