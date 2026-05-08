@@ -1,3 +1,8 @@
+Reset state: true
+
+First run or no previous state file found.
+All current files are listed below.
+
 Unknown_videos
 
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v__MaACRbgg0A.mp4.z01
@@ -31,6 +36,7 @@ https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/U
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v__MaACRbgg0A.mp4.z29
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v__MaACRbgg0A.mp4.z30
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v__MaACRbgg0A.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_gBuTIrEG87s.mp4
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_i5GMZMIdrf4.mp4.z01
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_i5GMZMIdrf4.mp4.z02
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_i5GMZMIdrf4.mp4.z03
@@ -48,6 +54,25 @@ https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/U
 
 orangejuice_videos
 
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/info/v001_-cZ8VUgsbwE.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/info/v002_JoS730Iz5sI.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z03
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z04
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z05
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z06
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z07
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z08
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z09
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z10
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z11
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z12
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z13
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z14
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z15
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.z16
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_-cZ8VUgsbwE.mp4.zip
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_iJC_i28A49o.mp4.z01
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_iJC_i28A49o.mp4.z02
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v001_iJC_i28A49o.mp4.z03
@@ -57,6 +82,14 @@ https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/o
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_8W45IZPCGKA.mp4.z03
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_8W45IZPCGKA.mp4.z04
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_8W45IZPCGKA.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z03
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z04
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z05
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z06
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.z07
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v002_JoS730Iz5sI.mp4.zip
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v003_FmaSeC1hDZ4.mp4.z01
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v003_FmaSeC1hDZ4.mp4.z02
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v003_FmaSeC1hDZ4.mp4.zip
@@ -71,4 +104,18 @@ https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/o
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v006_z5-g469loH8.mp4.z02
 https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/orangejuice_videos/v006_z5-g469loH8.mp4.zip
 
+
+teerak_videos
+
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/info/v001_TvfZbAhbKhU.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/info/v002_w1hbn6j7cjQ.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v001_TvfZbAhbKhU.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v001_TvfZbAhbKhU.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v001_TvfZbAhbKhU.mp4.z03
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v001_TvfZbAhbKhU.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v002_w1hbn6j7cjQ.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v002_w1hbn6j7cjQ.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v002_w1hbn6j7cjQ.mp4.z03
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v002_w1hbn6j7cjQ.mp4.z04
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/teerak_videos/v002_w1hbn6j7cjQ.mp4.zip
 
