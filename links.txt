@@ -1,3 +1,45 @@
-New files since previous workflow run:
+Reset state: true
 
-No new files found.
+First run or no previous state file found.
+All current files are listed below.
+
+JadiMirmirani_videos
+
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v001_Qu4YQrX2wYw.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v002_0GUEoWEDqlo.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v003_O1Rf6az1WnE.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v004_iTNw8fXerzE.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v005_dt8IfGv_7x0.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v006_Zq41gWvbEL0.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v007_jMnX3kJIzUg.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v008_nyOX9Xh7T5M.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v009_38YvfiprcOU.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/info/v010_n_OGYdpKZbo.md
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v001_Qu4YQrX2wYw.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v002_0GUEoWEDqlo.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v002_0GUEoWEDqlo.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v003_O1Rf6az1WnE.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v003_O1Rf6az1WnE.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v003_O1Rf6az1WnE.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v004_iTNw8fXerzE.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v004_iTNw8fXerzE.mp4.z02
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v004_iTNw8fXerzE.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v005_dt8IfGv_7x0.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v006_Zq41gWvbEL0.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v006_Zq41gWvbEL0.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v007_jMnX3kJIzUg.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v008_nyOX9Xh7T5M.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v009_38YvfiprcOU.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v010_n_OGYdpKZbo.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/JadiMirmirani_videos/v010_n_OGYdpKZbo.mp4.zip
+
+
+Unknown_videos
+
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_9QGIQ3MZdHY.mp4.z01
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_9QGIQ3MZdHY.mp4.zip
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_L3lJZrAqqUQ.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_enPMioju-V4.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_nAkAuFj1V1I.mp4
+https://raw.githubusercontent.com/raha-2000/MyYouTubeDownloader/main/downloads/Unknown_videos/v_wXcMC6SpQdA.mp4
+
